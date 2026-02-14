@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================
+   Base Styles
+   ============================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-brand-dark font-sans text-white;
+  }
+
+  ::selection {
+    @apply bg-neon-cyan/30 text-white;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060a14;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-neon-purple/60;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-purple;
+  }
+}
+
+/* ============================
+   Component Styles
+   ============================ */
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+  .glass-card-hover:hover {
+    @apply border-neon-cyan/30 bg-white/[0.07] shadow-[0_0_40px_rgba(6,214,160,0.08)];
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  /* Neon Button Primary */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neon-cyan to-emerald-500
+           px-8 py-4 text-base font-bold text-brand-dark transition-all duration-300;
+  }
+  .btn-primary:hover {
+    @apply shadow-[0_0_30px_rgba(6,214,160,0.35)] scale-[1.03];
+  }
+
+  /* Ghost Button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5
+           px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300;
+  }
+  .btn-ghost:hover {
+    @apply border-neon-cyan/40 bg-white/10 shadow-[0_0_20px_rgba(6,214,160,0.1)];
+  }
+
+  /* Section Heading */
+  .section-heading {
+    @apply text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl;
+  }
+
+  .section-subheading {
+    @apply mt-4 max-w-2xl text-lg text-gray-400;
+  }
+
+  /* Google Play Badge */
+  .play-badge {
+    @apply inline-flex items-center gap-3 rounded-xl bg-black border-2 border-gray-700
+           px-5 py-3 text-white transition-all duration-300;
+  }
+  .play-badge:hover {
+    @apply border-neon-cyan/50 shadow-[0_0_15px_rgba(6,214,160,0.2)] scale-[1.03];
+  }
+
+  /* Input Fields */
+  .form-input {
+    @apply block w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white
+           placeholder-gray-500 transition-all duration-300
+           focus:border-neon-cyan/50 focus:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-neon-cyan/20;
+  }
+}
+
+/* ============================
+   Utility Animations
+   ============================ */
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+}
+
+/* ============================
+   Game Cover Art Backgrounds
+   ============================ */
+.game-cover-escape {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #e94560 100%);
+}
+.game-cover-chunky {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b4332 40%, #2d6a4f 70%, #52b788 100%);
+}
+.game-cover-bounce {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2a1a5e 40%, #6600cc 70%, #ff6b6b 100%);
+}
+
+/* Game Cover Illustrations (SVG Patterns) */
+.game-art-container {
+  position: relative;
+  overflow: hidden;
+}
+.game-art-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 60%);
+  z-index: 1;
+}
